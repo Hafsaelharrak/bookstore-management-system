@@ -1,0 +1,31 @@
+/node_modules
+/dist
+.angular/cache
+/target
+*.jar
+*.war
+*.ear
+.idea/
+*.iml
+.vscode/
+.env
+*.properties
+# For Angular frontend
+echo "/node_modules" >> .gitignore
+echo "/dist" >> .gitignore
+echo ".angular/cache" >> .gitignore
+
+# For Spring Boot backend
+echo "/target" >> .gitignore
+echo "*.jar" >> .gitignore
+echo "*.war" >> .gitignore
+echo "*.ear" >> .gitignore
+
+# IDE files
+echo ".idea/" >> .gitignore
+echo "*.iml" >> .gitignore
+echo ".vscode/" >> .gitignore
+
+# Environment files
+echo ".env" >> .gitignore
+echo "*.properties" >> .gitignore

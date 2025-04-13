@@ -1,0 +1,47 @@
+<!--  Book Button -->
+<div style="display: flex; justify-content: flex-end; margin-bottom: 16px;">
+  <button mat-raised-button color="primary" [routerLink]="['/books/add']">
+    <mat-icon>add</mat-icon> Add New Book
+  </button>
+</div>
+
+<!-- Books Table -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let book"> {{ book.title }} </td>
+  </ng-container>
+
+  <!-- Author Column -->
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef> Author </th>
+    <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let book"> {{ book.price }} MAD </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let book">
+      <!-- Edit Book -->
+      <button mat-icon-button color="accent" [routerLink]="['/books/edit', book.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <!-- Delete Book -->
+      <button mat-icon-button color="warn" (click)="deleteBook(book.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Header and Row Definitions -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
